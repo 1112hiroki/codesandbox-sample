@@ -50,3 +50,219 @@
 // val5.push("monkey");
 
 // console.log(val5);
+
+// -----------------------------------------------------
+
+/**
+ * テンプレート文字列
+ */
+
+// const name = "suzuki";
+// const age = 27;
+// // [私の名前はsuzukiです。年齢は27歳です]と表示したい。
+
+// // 従来の方法
+// const message1 = "私の名前は" + name + "です。年齢は" + age + "です。";
+// console.log(message1);
+
+// // テンプレート文字列を用いた方法
+// const message2 = `私の名前は${name}です。年齢は${age}です。`;
+// console.log(message2);
+
+// -----------------------------------------------------
+
+/**
+ * アロー関数
+ */
+
+// 従来の関数
+// function func1(str) {
+//   return str + "!!!";
+// }
+
+// const func1 = function (str) {
+//   return str + "!";
+// };
+
+// console.log(func1("testです"));
+
+// // アロー関数
+// const func2 = (str, str2) => {
+//   return str + "=>!" + str2;
+// };
+
+// const func3 = (num1, num2) => `結果は${num1 + num2}です。`;
+
+// console.log(func2("func2です", "????"));
+// console.log(func3(10, 20));
+
+// Point: 従来のfuncとアロー関数の記述の仕方では、thisの扱い方が異なる。
+
+// -----------------------------------------------------
+
+/**
+ * 分割代入
+ */
+
+// const myProfile = {
+//   name: "suzuki",
+//   age: 27
+// };
+
+// const message3 = `名前は${name}です。年齢は${age}です。`;
+// console.log(message3);
+
+// const { name, age } = myProfile;
+// const message4 = `名前は${name}です。年齢は${age}です。`;
+// console.log(message4);
+
+// const myProfile = ["suzuki", 28];
+
+// const message5 = `名前は${myProfile[0]}です。年齢は${myProfile[1]}歳です。`;
+// console.log(message5);
+
+// const [name, age] = myProfile;
+// const message6 = `名前は${name}です。年齢は${age}歳です。`;
+// console.log(message6);
+
+// -----------------------------------------------------
+
+/**
+ * デフォルト値
+ */
+
+// const sayHello = (name) => console.log(`こんにちは！${name}さん`);
+
+// sayHello("鈴木"); // こんにちは！鈴木さん
+// sayHello(); // こんにちは！undefinedさん
+
+// const sayHello = (name = "ゲスト") => console.log(`こんにちは！${name}さん`);
+// sayHello(); // こんにちは！ゲストさん
+
+// -----------------------------------------------------
+
+/**
+ * スプレット構文
+ */
+
+//　 配列の展開
+
+// const arr1 = [1, 2];
+// // console.log(arr1);
+// // console.log(...arr1);
+
+// const sumFunc = (num1, num2) => console.log(num1 + num2);
+// sumFunc(arr1[0], arr1[1]);
+// sumFunc(...arr1);
+
+// まとめる
+
+// const arr2 = [1, 2, 3, 4, 5];
+// const [num1, num2, ...arr3] = arr2; //分割代入
+// console.log(num1);
+// console.log(num2);
+// console.log(arr3);
+
+// 配列のコピー ・ 結合
+// const arr4 = [10, 20];
+// const arr5 = [30, 40];
+
+// const arr6 = [...arr4];
+// console.log(arr6);
+
+// const arr7 = [...arr4, ...arr5];
+// console.log(arr7);
+
+// const arr8 = arr4; ×参照元が一緒になるので arr8の変更がarr4にも影響してしまう(逆も同様)
+// console.log(arr8);
+
+// arr8.push(30);
+
+// console.log(arr8);
+// console.log(arr4);
+
+// -----------------------------------------------------
+
+/**
+ * mapやfilterを使った配列の処理
+ */
+
+// const nameArr = ["鈴木", "山田", "田中"];
+
+// for (let index = 0; index < nameArr.length; index++) {
+//   console.log(nameArr[index]);
+// }
+
+// const nameArr2 = nameArr.map((name, index) => {
+//   return `${index + 1}番目は、${name}さん`;
+// });
+
+// console.log(nameArr2);
+
+// const numArr = [1, 2, 3, 4, 5];
+// const newNumArr = numArr.filter((num) => {
+//   return num % 2 === 1;
+//   // 条件に一致したものだけ返る
+// });
+
+// console.log(newNumArr);
+
+// const nameArr = ["鈴木", "山田", "田中"];
+
+// const newNameArr = nameArr.map((name) => {
+//   if (name === "鈴木") {
+//     return name;
+//   } else {
+//     return `${name}さん`;
+//   }
+// });
+
+// console.log(newNameArr);
+
+// -----------------------------------------------------
+
+/**
+ * 三項演算子
+ */
+
+// ある条件 ? 条件がtrueの時 : 条件がfalseの時
+
+// const val1 = 1 > 0 ? "true" : "false";
+// console.log(val1);
+
+// const num = "1300";
+// console.log(num.toLocaleString()); //numberに3桁でカンマ区切りをする
+
+// const formattedNum =
+//   typeof num === "number" ? num.toLocaleString() : "数値を入力して下さい";
+
+// console.log(formattedNum);
+
+// const checkSum = (num1, num2) => {
+//   return num1 + num2 > 100 ? "100を超えています!!" : "許容範囲内です。";
+// };
+
+// console.log(checkSum(100, 200));
+// console.log(checkSum(1, 2));
+
+// -----------------------------------------------------
+
+/**
+ * 論理演算子の本当の意味を知ろう
+ */
+
+// && ||
+
+// const flag1 = true;
+// const flag2 = false;
+
+// if (flag1 || flag2) {
+//   console.log("1か２はtrueになります！");
+// }
+// if (flag1 && flag2) {
+//   console.log("1も２もtrueになります！");
+// }
+
+// || と && は左辺->右辺の順番で評価される。
+// || は　 左辺がtrueだった場合、右辺は評価されない。また左辺の値が返る。
+// && は 左辺がtrueで、右辺もtrueだった場合、右辺の値が返る。
